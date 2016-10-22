@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private Double operand2;
     private String currentOperator;
     private Boolean equalsButtonPressed = false;
+    private Boolean singleOperationButtonPressed = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +56,24 @@ public class MainActivity extends AppCompatActivity {
             operand2 = null;
         }
 
-        if(!pressedOperator.equalsIgnoreCase("LOG")){
+        if(operatorButton.getTag().toString().equalsIgnoreCase("doubleOperator")){
             currentOperator = pressedOperator;
+        }
+        else if(pressedOperator.equalsIgnoreCase("SIN")){
+            currentOperator = null;
+            operand1 = Math.sin(operand1);
+        }
+        else if(pressedOperator.equalsIgnoreCase("COS")){
+            currentOperator = null;
+            operand1 = Math.cos(operand1);
+        }
+        else if(pressedOperator.equalsIgnoreCase("TAN")){
+            currentOperator = null;
+            operand1 = Math.tan(operand1);
         }
         else {
             currentOperator = null;
-            operand1 = Math.log(operand1);
+            operand1 = Math.log10(operand1);
         }
         updateDisplay();
     }
@@ -67,9 +81,10 @@ public class MainActivity extends AppCompatActivity {
     public void responsePressedNumber(View view){
         Button numberButton = (Button)view;
         if(currentOperator == null){
-            if(operand1 == 0.00 || equalsButtonPressed)
+            if(operand1 == 0.00 || equalsButtonPressed || singleOperationButtonPressed)
                 mNumberScreen1.setText("");
 
+            singleOperationButtonPressed = false;
             equalsButtonPressed = false;
             mNumberScreen1.append(numberButton.getText().toString());
             operand1 = Double.valueOf(mNumberScreen1.getText().toString());

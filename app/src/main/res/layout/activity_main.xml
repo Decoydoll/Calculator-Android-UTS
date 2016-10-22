@@ -173,14 +173,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="responsePressedOperator"
-            android:text="+"/>
+            android:text="+"
+            android:tag="doubleOperation"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="responsePressedOperator"
-            android:text="x"/>
+            android:text="x"
+            android:tag="doubleOperation"/>
 
         <Button
             android:layout_width="0dp"
@@ -194,14 +196,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="responsePressedOperator"
-            android:text="-"/>
+            android:text="-"
+            android:tag="doubleOperation"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="responsePressedOperator"
-            android:text="mod"/>
+            android:text="mod"
+            android:tag="doubleOperation"/>
 
         <Button
             android:layout_width="0dp"
@@ -215,7 +219,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/operatorsSet">
+        android:layout_above="@id/operatorsSet"
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="0dp"
@@ -231,6 +236,34 @@
             android:onClick="doC"
             android:text="C"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@id/operatorsSet">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="responsePressedOperator"
+            android:text="sin"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="responsePressedOperator"
+            android:text="cos"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="responsePressedOperator"
+            android:text="tan"/>
     </LinearLayout>
 
 
